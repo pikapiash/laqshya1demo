@@ -1,11 +1,17 @@
 :root {
     /* --- NEW COLOR THEME --- */
-    --bg-color: #03081a; /* Very dark blue/black */
-    --primary-color: #0b132b; /* Dark blue */
-    --accent-red: #3c6e71; /* Teal/Blue-Green accent (Replacing red) */
-    --accent-orange: #5bc0de; /* Light blue/Cyan accent (Replacing orange) */
-    --text-color: #adb5bd; /* Cool light gray */
-    --heading-color: #f8f9fa; /* Bright off-white */
+    --bg-color: #03081a;
+    /* Very dark blue/black */
+    --primary-color: #0b132b;
+    /* Dark blue */
+    --accent-red: #3c6e71;
+    /* Teal/Blue-Green accent (Replacing red) */
+    --accent-orange: #5bc0de;
+    /* Light blue/Cyan accent (Replacing orange) */
+    --text-color: #adb5bd;
+    /* Cool light gray */
+    --heading-color: #f8f9fa;
+    /* Bright off-white */
     /* ----------------------- */
     --font-heading: 'Bebas Neue', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -28,7 +34,8 @@ body {
     overflow-x: hidden;
 
     /* --- BACKGROUND IMAGE (Assuming you still want it) --- */
-    background-image: linear-gradient(rgba(3, 8, 26, 0.6), rgba(3, 8, 26, 0.7)), url(bg1.jpg); /* Adjusted gradient colors */
+    background-image: linear-gradient(rgba(3, 8, 26, 0.6), rgba(3, 8, 26, 0.7)), url(bg1.jpg);
+    /* Adjusted gradient colors */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -43,7 +50,8 @@ body::after {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.6); /* Slightly darker shadow */
+    box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.6);
+    /* Slightly darker shadow */
 }
 
 .container {
@@ -64,9 +72,11 @@ body::after {
 }
 
 .header.scrolled {
-    background: rgba(3, 8, 26, 0.7); /* Darker scrolled background */
+    background: rgba(3, 8, 26, 0.7);
+    /* Darker scrolled background */
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(60, 110, 113, 0.3); /* Use new accent color for border */
+    border-bottom: 1px solid rgba(60, 110, 113, 0.3);
+    /* Use new accent color for border */
 }
 
 .navbar {
@@ -108,7 +118,8 @@ body::after {
     height: 2px;
     bottom: -5px;
     left: 0;
-    background-color: var(--accent-red); /* New accent color */
+    background-color: var(--accent-red);
+    /* New accent color */
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease-out;
@@ -143,20 +154,23 @@ body::after {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0.1; /* Keep low opacity for subtlety */
+    opacity: 0.1;
+    /* Keep low opacity for subtlety */
     animation: slow-pan 60s linear infinite alternate;
 }
 
 .hero-bg-layer.smoke {
     background-image: url(https://www.transparenttextures.com/patterns/realistic-white-smoke.png);
-    opacity: 0.05; /* Make smoke even subtler */
+    opacity: 0.05;
+    /* Make smoke even subtler */
 }
 
 .hero-bg-layer.embers {
     /* Maybe remove or replace this if it clashes with the blue theme */
-     background-image: url(https://www.transparenttextures.com/patterns/wavecut.png); /* Example replacement */
-     opacity: 0.03;
-     animation-duration: 40s;
+    background-image: url(https://www.transparenttextures.com/patterns/wavecut.png);
+    /* Example replacement */
+    opacity: 0.03;
+    animation-duration: 40s;
 }
 
 @keyframes slow-pan {
@@ -191,24 +205,65 @@ body::after {
     width: 1100px;
     height: auto;
     margin: 0 auto 20px auto;
-    filter: drop-shadow(0 0 20px rgba(91, 192, 222, 0.4)); /* Lighter blue drop shadow */
+    filter: drop-shadow(0 0 20px rgba(91, 192, 222, 0.4));
+    /* Lighter blue drop shadow */
     animation: fadeInUp 0.8s ease-out 0.2s;
     animation-fill-mode: backwards;
 }
 
-.hero p {
-    font-size: 1.1rem;
-    margin: 0 auto 40px auto;
-    max-width: 550px;
-    line-height: 1.7;
-    animation: fadeInUp 0.8s ease-out 0.4s;
+/* ===== START: COUNTDOWN TIMER STYLES ===== */
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px auto 40px;
+    /* Add space around the timer */
+    animation: fadeInUp 0.8s ease-out 0.3s;
+    /* Slightly delayed animation */
     animation-fill-mode: backwards;
 }
+
+.countdown-block {
+    background: rgba(11, 19, 43, 0.6);
+    /* Consistent bg */
+    padding: 15px 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(60, 110, 113, 0.3);
+    /* Accent border */
+    backdrop-filter: blur(5px);
+    text-align: center;
+    min-width: 80px;
+    /* Ensure blocks have some width */
+}
+
+.countdown-block span {
+    display: block;
+}
+
+.countdown-block span:first-child {
+    /* The number */
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--heading-color);
+    line-height: 1;
+}
+
+.countdown-block .label {
+    /* The label (Days, Hours, etc.) */
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+/* ===== END: COUNTDOWN TIMER STYLES ===== */
+
 
 /* ===== START: UPDATED INFO LAYOUT STYLES ===== */
 .info-layout-section {
     width: 100%;
-    max-width: 1100px; /* Wider for the two-column layout */
+    max-width: 1100px;
+    /* Wider for the two-column layout */
     margin: 40px auto;
     animation: fadeInUp 0.8s ease-out 0.4s;
     animation-fill-mode: backwards;
@@ -216,16 +271,19 @@ body::after {
 
 .info-row {
     display: flex;
-    flex-wrap: wrap; /* Mobile-first: stacks them */
-    align-items: stretch; /* Makes children same height */
+    flex-wrap: wrap;
+    /* Mobile-first: stacks them */
+    align-items: stretch;
+    /* Makes children same height */
     margin-bottom: 40px;
-    
+
     /* These styles are for the SINGLE container */
     background: rgba(11, 19, 43, 0.6);
     border: 1px solid rgba(60, 110, 113, 0.3);
     border-radius: 8px;
     backdrop-filter: blur(5px);
-    overflow: hidden; /* This is critical! */
+    overflow: hidden;
+    /* This is critical! */
     transition: all 0.3s ease;
 }
 
@@ -236,8 +294,10 @@ body::after {
 }
 
 .info-text {
-    flex-grow: 1; /* Allows it to grow */
-    flex-basis: 400px; /* Base width before growing/shrinking */
+    flex-grow: 1;
+    /* Allows it to grow */
+    flex-basis: 400px;
+    /* Base width before growing/shrinking */
     padding: 30px;
     text-align: left;
     display: flex;
@@ -263,19 +323,22 @@ body::after {
 .info-image-wrapper {
     flex-grow: 1;
     flex-basis: 400px;
-    min-width: 0; /* Prevents flex overflow */
+    min-width: 0;
+    /* Prevents flex overflow */
 }
 
 .info-image {
     width: 100%;
-    height: 100%; /* Fills the stretched parent */
+    height: 100%;
+    /* Fills the stretched parent */
     overflow: hidden;
     /* Removed border and radius */
 }
 
 .info-image img {
     width: 100%;
-    height: 100%; /* Fills the container */
+    height: 100%;
+    /* Fills the container */
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
@@ -292,13 +355,15 @@ body::after {
 .cta-button {
     display: inline-block;
     padding: 14px 32px;
-    background: var(--accent-red); /* New accent color */
+    background: var(--accent-red);
+    /* New accent color */
     color: var(--heading-color);
     text-decoration: none;
     font-weight: 700;
     border-radius: 4px;
     transition: all 0.3s ease;
-    box-shadow: 0 0 25px rgba(60, 110, 113, 0.6); /* New accent shadow */
+    box-shadow: 0 0 25px rgba(60, 110, 113, 0.6);
+    /* New accent shadow */
     font-size: 1.1rem;
     text-transform: uppercase;
     animation: fadeInUp 0.8s ease-out 0.6s, pulse 2s infinite 1s;
@@ -308,68 +373,108 @@ body::after {
 /* Updated Pulse Animation */
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 25px rgba(60, 110, 113, 0.6); /* Use new accent color */
+        box-shadow: 0 0 25px rgba(60, 110, 113, 0.6);
+        /* Use new accent color */
     }
 
     50% {
-        box-shadow: 0 0 35px rgba(91, 192, 222, 0.8); /* Use lighter accent for pulse */
+        box-shadow: 0 0 35px rgba(91, 192, 222, 0.8);
+        /* Use lighter accent for pulse */
     }
 
     100% {
-        box-shadow: 0 0 25px rgba(60, 110, 113, 0.6); /* Use new accent color */
+        box-shadow: 0 0 25px rgba(60, 110, 113, 0.6);
+        /* Use new accent color */
     }
 }
 
 
 .cta-button:hover {
     transform: scale(1.05);
-    background: var(--accent-orange); /* Lighter blue on hover */
-    box-shadow: 0 5px 35px rgba(91, 192, 222, 0.7); /* Lighter blue shadow on hover */
+    background: var(--accent-orange);
+    /* Lighter blue on hover */
+    box-shadow: 0 5px 35px rgba(91, 192, 222, 0.7);
+    /* Lighter blue shadow on hover */
 }
+
+/* Banner Carousel Section */
+/* =================================================== */
+/* START: Replace this block in your index.css */
+/* =================================================== */
 
 /* Banner Carousel Section */
 .banner-carousel-section {
     padding: 130px 0 50px 0;
-    background-color: rgba(11, 19, 43, 0.6); /* Slightly lighter dark blue */
-    border-top: 1px solid rgba(60, 110, 113, 0.3); /* New accent border */
-    border-bottom: 1px solid rgba(60, 110, 113, 0.3); /* New accent border */
-    position: relative;   /* <-- ADD THIS */
+    background-color: rgba(11, 19, 43, 0.6);
+    border-top: 1px solid rgba(60, 110, 113, 0.3);
+    border-bottom: 1px solid rgba(60, 110, 113, 0.3);
+    position: relative;
+    /* This is key: it clips the slides that go off-screen */
     overflow: hidden;
 }
 
 .banner-carousel {
     position: relative;
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    /* Overflow must be visible so slides can "peek" */
+    overflow: visible;
+}
+
+.slides {
+    /* Changed from flex to block (JS will handle positioning) */
+    /* Switched to a flex layout */
+    display: flex;
+    align-items: center;
+    /* Vertically center scaled-down slides */
+
+    /* This transition is crucial for the sliding animation */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.slide {
+    /* Remove old opacity/display rules */
+    /* min-width: 100%; */
+    /* Remove this */
+    /* opacity: 0; */
+    /* Remove this */
+    /* display: none; */
+    /* Remove this */
+
+    /* This is the new layout */
+    position: relative;
+    flex: 0 0 70%;
+    /* Each slide takes up 70% of the container */
+    margin: 0 2%;
+    /* Adds spacing between slides */
+
+    /* Style for non-active slides */
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: 0.5s ease all;
+
+    /* Make sure images don't break layout */
     border-radius: 8px;
     overflow: hidden;
 }
 
-.slides {
-    display: flex;
-    width: 100%;
-}
-
-.slide {
-    min-width: 100%;
-    position: relative;
-    opacity: 0;
-    transition: opacity 0.6s ease-in-out;
-    display: none;
-}
-
 .slide.active {
-    display: block;
+    /* Remove old display:block */
+    /* display: block; */
+    /* Remove this */
+
+    /* Style for the active (centered) slide */
     opacity: 1;
+    transform: scale(1);
 }
 
 .slide img {
     width: 100%;
     display: block;
-    object-fit: fill; /* Consider 'cover' if images get distorted */
-    height: 600px;
-    border-radius: 8px;
+    object-fit: contain;
+    height: 500px;
+    /* Reduced height a bit, adjust as needed */
+    /* border-radius: 8px; */
+    /* Moved to .slide */
 }
 
 .slide-content {
@@ -378,7 +483,7 @@ body::after {
     left: 0;
     right: 0;
     padding: 40px;
-    background: linear-gradient(to top, rgba(3, 8, 26, 0.95) 20%, transparent); /* Darker gradient */
+    background: linear-gradient(to top, rgba(3, 8, 26, 0.95) 20%, transparent);
     color: var(--heading-color);
     text-align: left;
     border-radius: 0 0 8px 8px;
@@ -399,7 +504,7 @@ body::after {
 }
 
 .slide-cta {
-    background: var(--accent-red); /* New accent color */
+    background: var(--accent-red);
     color: var(--heading-color);
     text-decoration: none;
     padding: 10px 25px;
@@ -409,7 +514,7 @@ body::after {
 }
 
 .slide-cta:hover {
-    background: var(--accent-orange); /* Lighter blue hover */
+    background: var(--accent-orange);
     transform: scale(1.05);
 }
 
@@ -417,7 +522,7 @@ body::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(11, 19, 43, 0.5); /* Dark blue controls */
+    background-color: rgba(11, 19, 43, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     font-size: 2rem;
@@ -435,11 +540,13 @@ body::after {
 }
 
 .carousel-control.prev {
-    left: 15px;
+    /* Adjusted position to be outside the main slide area */
+    left: 40px;
 }
 
 .carousel-control.next {
-    right: 15px;
+    /* Adjusted position to be outside the main slide area */
+    right: 40px;
 }
 
 .carousel-dots {
@@ -463,18 +570,23 @@ body::after {
 }
 
 .dot.active {
-    background-color: var(--accent-red); /* New accent color */
+    background-color: var(--accent-red);
     transform: scale(1.2);
 }
+
+/* =================================================== */
+/* END: CSS Replacement Block */
+/* =================================================== */
 
 /* Section Styling */
 .section {
     padding: 100px 0;
     position: relative;
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Removed transition properties for scroll reveal */
 }
 
 .section.visible {
+    /* Keep this for potential future use or consistency */
     opacity: 1;
     transform: translateY(0);
 }
@@ -493,48 +605,69 @@ body::after {
 .event-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px; /* Increased margin below tabs */
-    gap: 10px; /* Slightly reduced gap for a tighter look */
+    margin-bottom: 50px;
+    /* Increased margin below tabs */
+    gap: 10px;
+    /* Slightly reduced gap for a tighter look */
     flex-wrap: wrap;
-    border-bottom: 2px solid var(--primary-color); /* Added a base underline */
-    padding-bottom: 5px; /* Space between tabs and underline */
+    border-bottom: 2px solid var(--primary-color);
+    /* Added a base underline */
+    padding-bottom: 5px;
+    /* Space between tabs and underline */
 }
 
 .tab-button {
     font-family: var(--font-heading);
-    font-size: 1.7rem; /* Slightly larger font */
-    letter-spacing: 1.5px; /* More spacing */
-    padding: 14px 30px; /* Increased padding */
+    font-size: 1.7rem;
+    /* Slightly larger font */
+    letter-spacing: 1.5px;
+    /* More spacing */
+    padding: 14px 30px;
+    /* Increased padding */
     cursor: pointer;
     background: transparent;
     color: var(--text-color);
-    border: none; /* Removed default border */
-    border-bottom: 3px solid transparent; /* Placeholder for active/hover border */
-    border-radius: 0; /* Removed rounding */
+    border: none;
+    /* Removed default border */
+    border-bottom: 3px solid transparent;
+    /* Placeholder for active/hover border */
+    border-radius: 0;
+    /* Removed rounding */
     transition: all 0.3s ease;
-    margin-bottom: -5px; /* Align with the container's bottom border */
-    position: relative; /* For pseudo-elements if needed */
+    margin-bottom: -5px;
+    /* Align with the container's bottom border */
+    position: relative;
+    /* For pseudo-elements if needed */
 }
 
 .tab-button:hover {
-    background-color: transparent; /* Keep background transparent on hover */
-    color: var(--heading-color); /* Make text brighter on hover */
-    border-bottom-color: var(--accent-orange); /* Add colored underline on hover */
+    background-color: transparent;
+    /* Keep background transparent on hover */
+    color: var(--heading-color);
+    /* Make text brighter on hover */
+    border-bottom-color: var(--accent-orange);
+    /* Add colored underline on hover */
 }
 
 .tab-button.active {
-    background-color: transparent; /* Keep background transparent */
-    color: var(--heading-color); /* Bright text for active */
-    border-bottom-color: var(--accent-red); /* Stronger accent color for active underline */
-    font-weight: bold; /* Make active tab text bolder */
-    box-shadow: none; /* Removed previous shadow */
+    background-color: transparent;
+    /* Keep background transparent */
+    color: var(--heading-color);
+    /* Bright text for active */
+    border-bottom-color: var(--accent-red);
+    /* Stronger accent color for active underline */
+    font-weight: bold;
+    /* Make active tab text bolder */
+    box-shadow: none;
+    /* Removed previous shadow */
 }
 
 /* Optional: Add a subtle top border effect on active tab */
 .tab-button.active::before {
     content: '';
     position: absolute;
-    top: -2px; /* Position above the tab */
+    top: -2px;
+    /* Position above the tab */
     left: 0;
     width: 100%;
     height: 3px;
@@ -548,11 +681,13 @@ body::after {
         transform: translateY(-10px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
     }
 }
+
 /* --- END OF EVENT TAB UPDATES --- */
 
 .tab-content {
@@ -582,7 +717,8 @@ body::after {
 
 /* Event Department Styling */
 .department-section {
-    margin-top: 30px; /* Added margin above department title after tabs */
+    margin-top: 30px;
+    /* Added margin above department title after tabs */
     margin-bottom: 50px;
 }
 
@@ -603,12 +739,14 @@ body::after {
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--accent-red); /* New accent color */
+    background: var(--accent-red);
+    /* New accent color */
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.6s ease-out;
 }
 
+/* Scroll reveal for the underline (if IntersectionObserver is used) */
 .section.visible .department-title::after {
     transform: scaleX(1);
 }
@@ -618,32 +756,45 @@ body::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 25px;
-    justify-items: center; /* Center items within their grid cell */
+    justify-items: center;
+    /* Center items within their grid cell */
 }
 
 .event-card {
     background-color: var(--primary-color);
     border-radius: 4px;
-    border: 1px solid rgba(60, 110, 113, 0.2); /* New accent border */
+    border: 1px solid rgba(60, 110, 113, 0.2);
+    /* New accent border */
     transition: all 0.3s ease;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-width: 400px; /* Prevent cards from becoming too wide */
-    margin-left: auto; /* Center card if max-width applies */
-    margin-right: auto; /* Center card if max-width applies */
-    width: 100%; /* Ensure card takes available space up to max-width */
+    max-width: 400px;
+    /* Prevent cards from becoming too wide */
+    margin-left: auto;
+    /* Center card if max-width applies */
+    margin-right: auto;
+    /* Center card if max-width applies */
+    width: 100%;
+    /* Ensure card takes available space up to max-width */
 }
 
 .event-card:hover {
-    border-color: var(--accent-red); /* New accent color */
+    border-color: var(--accent-red);
+    /* New accent color */
     transform: scale(1.02);
-    box-shadow: 0 5px 25px rgba(60, 110, 113, 0.3); /* New accent shadow */
+    box-shadow: 0 5px 25px rgba(60, 110, 113, 0.3);
+    /* New accent shadow */
 }
 
 .event-card .event-image {
     width: 100%;
-    display: block; /* ADDED for good practice */
+    display: block;
+    /* aspect-ratio: 16 / 9; */
+    /* <<< REMOVED THIS LINE */
+    height: auto;
+    /* <<< ADDED THIS LINE */
+    object-fit: cover;
 }
 
 .event-card-content {
@@ -678,13 +829,16 @@ body::after {
     gap: 15px;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: auto; /* Push buttons to bottom if content is short */
+    margin-top: auto;
+    /* Push buttons to bottom if content is short */
 }
 
 .guidelines-button {
     background: transparent;
-    border: 1px solid var(--accent-orange); /* Lighter blue border */
-    color: var(--accent-orange); /* Lighter blue text */
+    border: 1px solid var(--accent-orange);
+    /* Lighter blue border */
+    color: var(--accent-orange);
+    /* Lighter blue text */
     padding: 10px 25px;
     border-radius: 4px;
     font-weight: 700;
@@ -694,12 +848,15 @@ body::after {
 }
 
 .guidelines-button:hover {
-    background: var(--accent-orange); /* Lighter blue background */
-    color: var(--bg-color); /* Dark text on hover */
+    background: var(--accent-orange);
+    /* Lighter blue background */
+    color: var(--bg-color);
+    /* Dark text on hover */
 }
 
 .register-button {
-    background: var(--accent-red); /* New accent color */
+    background: var(--accent-red);
+    /* New accent color */
     color: var(--heading-color);
     text-decoration: none;
     padding: 10px 25px;
@@ -711,17 +868,24 @@ body::after {
 
 .register-button:hover {
     transform: scale(1.05);
-    background: var(--accent-orange); /* Lighter blue hover */
-    color: var(--bg-color); /* Darker text */
-    box-shadow: 0 0 20px var(--accent-orange); /* Lighter blue shadow */
+    background: var(--accent-orange);
+    /* Lighter blue hover */
+    color: var(--bg-color);
+    /* Darker text */
+    box-shadow: 0 0 20px var(--accent-orange);
+    /* Lighter blue shadow */
 }
 
 /* --- UPDATED GUIDELINES SECTION STYLES --- */
 #guidelines {
-    background-color: #050a1f; /* Slightly darker than primary */
-    border-top: 1px solid var(--accent-red); /* New accent color */
-    border-bottom: 1px solid var(--accent-red); /* New accent color */
-    box-shadow: 0 0 40px rgba(60, 110, 113, 0.1); /* New accent shadow */
+    background-color: #050a1f;
+    /* Slightly darker than primary */
+    border-top: 1px solid var(--accent-red);
+    /* New accent color */
+    border-bottom: 1px solid var(--accent-red);
+    /* New accent color */
+    box-shadow: 0 0 40px rgba(60, 110, 113, 0.1);
+    /* New accent shadow */
 }
 
 .guidelines-list {
@@ -752,9 +916,11 @@ body::after {
     top: 2px;
     font-family: var(--font-heading);
     font-size: 1.5rem;
-    color: var(--accent-red); /* New accent color */
+    color: var(--accent-red);
+    /* New accent color */
     background-color: var(--primary-color);
-    border: 1px solid rgba(60, 110, 113, 0.3); /* New accent border */
+    border: 1px solid rgba(60, 110, 113, 0.3);
+    /* New accent border */
     width: 35px;
     height: 35px;
     line-height: 35px;
@@ -766,21 +932,26 @@ body::after {
 .guidelines-list li:hover::before {
     transform: scale(1.1);
     color: var(--heading-color);
-    border-color: var(--accent-red); /* New accent color */
-    box-shadow: 0 0 15px rgba(60, 110, 113, 0.5); /* New accent shadow */
+    border-color: var(--accent-red);
+    /* New accent color */
+    box-shadow: 0 0 15px rgba(60, 110, 113, 0.5);
+    /* New accent shadow */
 }
 
 .guidelines-list li a {
-    color: var(--accent-orange); /* Lighter blue links */
+    color: var(--accent-orange);
+    /* Lighter blue links */
     text-decoration: none;
     transition: color 0.3s;
     font-weight: 600;
 }
 
 .guidelines-list li a:hover {
-    color: var(--accent-red); /* Main accent hover */
+    color: var(--accent-red);
+    /* Main accent hover */
     text-decoration: underline;
 }
+
 /* --- END UPDATED GUIDELINES SECTION STYLES --- */
 
 
@@ -845,47 +1016,312 @@ body::after {
     border-radius: 4px;
     overflow: hidden;
     background-color: var(--primary-color);
-    box-shadow: inset 0 0 0 0px var(--accent-red); /* New accent color */
+    box-shadow: inset 0 0 0 0px var(--accent-red);
+    /* New accent color */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gallery-item:hover {
     transform: scale(1.03);
-    box-shadow: inset 0 0 0 4px var(--accent-red); /* New accent color */
+    box-shadow: inset 0 0 0 4px var(--accent-red);
+    /* New accent color */
 }
 
 
 /* Sponsors Section */
+/* ===== START: NEW SPONSORS SECTION ===== */
 #sponsors {
-    background-color: var(--primary-color);
+    /* Use the darkest background for high contrast */
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--accent-red);
+    border-bottom: 1px solid var(--accent-red);
+    padding: 100px 0;
 }
 
-.sponsor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    align-items: center;
+.sponsor-tier {
+    /* Add space between each tier */
+    margin-bottom: 50px;
 }
 
-.sponsor-logo {
+.tier-heading {
+    /* Style for the tier titles (e.g., "GOLD SPONSORS") */
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    /* Use 'rem' for accessibility */
+    color: var(--accent-red);
+    /* Use the main accent color */
     text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    position: relative;
 }
 
-.sponsor-logo img {
-    max-width: 120px;
-    filter: grayscale(100%) opacity(0.7);
+.tier-heading::after {
+    /* A subtle underline for the tier heading */
+    content: '';
+    display: block;
+    width: 80px;
+    height: 2px;
+    background-color: var(--accent-orange);
+    /* Use the lighter accent */
+    margin: 10px auto 0;
+}
+
+.logo-grid {
+    /* This is the flex container for the logos */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+.sponsor-plaque {
+    /* This is the base "plaque" for each logo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border: 1px solid rgba(60, 110, 113, 0.3);
+    /* Faint accent border */
+    border-radius: 8px;
+    padding: 20px;
     transition: all 0.3s ease;
+    text-decoration: none;
+    overflow: hidden;
+    /* Ensures image zoom doesn't break border */
 }
 
-.sponsor-logo:hover img {
+.sponsor-plaque img {
+    /* Base style for all sponsor images */
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) opacity(0.7);
+    transition: all 0.4s ease;
+    /* Slower, smoother transition */
+}
+
+/* --- TIER-SPECIFIC STYLES --- */
+
+/* --- TITLE TIER (Biggest) --- */
+.logo-grid.tier-title .sponsor-plaque {
+    flex-basis: 400px;
+    /* Make title sponsors large */
+    max-width: 500px;
+    padding: 30px;
+    /* Special "lit up" border for the title sponsor */
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 30px rgba(91, 192, 222, 0.4);
+}
+
+.logo-grid.tier-title .sponsor-plaque img {
+    /* Title sponsor is always full color */
     filter: grayscale(0%) opacity(1);
-    transform: scale(1.1) translateY(-5px);
 }
 
-/* Footer */
-.footer {
+/* --- GOLD TIER (Medium) --- */
+.logo-grid.tier-gold .sponsor-plaque {
+    flex-basis: 250px;
+    /* Medium size */
+    min-height: 120px;
+}
+
+/* --- PARTNER TIER (Smallest) --- */
+.logo-grid.tier-partners .sponsor-plaque {
+    flex-basis: 180px;
+    /* Smallest size */
+    min-height: 100px;
+    background-color: transparent;
+    /* Make partners more subtle */
+    border: 1px dashed rgba(60, 110, 113, 0.3);
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* All plaques (except title) light up on hover */
+.sponsor-plaque:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-red);
+    box-shadow: 0 5px 25px rgba(60, 110, 113, 0.3);
+    background-color: #070e24;
+    /* Slightly lighter than primary */
+}
+
+.sponsor-plaque:hover img {
+    /* All logos (except title) get color and zoom slightly on hover */
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.1);
+    /* Adds a nice zoom effect */
+}
+
+/* Specific hover for the main title sponsor */
+.logo-grid.tier-title .sponsor-plaque:hover {
+    box-shadow: 0 0 45px rgba(91, 192, 222, 0.7);
+    /* Brighter glow */
+}
+
+.logo-grid.tier-title .sponsor-plaque:hover img {
+    transform: scale(1.05);
+    /* Less zoom for the big one */
+}
+
+/* ===== END: NEW SPONSORS SECTION ===== */
+
+/* ===== START: NEW CONTACT & VENUE STYLES ===== */
+.contact-venue-section {
+    background-color: var(--primary-color);
+    /* Use primary as base */
+    border-top: 1px solid rgba(60, 110, 113, 0.3);
+}
+
+.contact-venue-layout {
+    display: flex;
+    flex-wrap: wrap;
+    /* Stack on mobile */
+    gap: 40px;
+    align-items: flex-start;
+    /* Align items to top */
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.college-logo {
+    max-width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Placeholder bg if logo is transparent */
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.contact-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.map-container {
+    flex: 1;
+    min-width: 300px;
+    min-height: 350px;
+    /* Give map some initial height */
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(60, 110, 113, 0.3);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    /* Ensure map maintains height */
+}
+
+/* --- START: NEW COORDINATOR STYLES --- */
+.coordinator-heading {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--heading-color);
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    /* Add space above the heading */
+}
+
+.coordinator-heading:first-of-type {
+    margin-top: 0;
+    /* No top margin for the very first one */
+}
+
+.coordinator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Responsive grid */
+    gap: 30px;
+    margin-bottom: 50px;
+    /* Space between grids and below the last grid */
+    justify-items: center;
+}
+
+.coordinator-card {
+    background-color: var(--bg-color);
+    /* Darker than section bg */
+    border: 1px solid rgba(60, 110, 113, 0.3);
+    /* Accent border */
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+    /* Limit card width */
+}
+
+.coordinator-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-red);
+    box-shadow: 0 5px 25px rgba(60, 110, 113, 0.3);
+}
+
+.coordinator-image {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    /* Circular image */
+    overflow: hidden;
+    margin: 0 auto 20px auto;
+    /* Center it */
+    background-color: var(--primary-color);
+    /* BG for placeholder */
+    border: 3px solid var(--accent-red);
+    /* Accent border */
+}
+
+.coordinator-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coordinator-details h4 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--heading-color);
+    margin-bottom: 8px;
+}
+
+.coordinator-details p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* --- END: NEW COORDINATOR STYLES --- */
+
+
+/* ===== END: NEW CONTACT & VENUE STYLES ===== */
+
+
+/* Footer (Renamed) */
+.page-footer {
     padding: 60px 0;
     text-align: center;
+    background-color: var(--bg-color);
+    /* Ensure it has the base bg */
 }
 
 .social-links a {
@@ -896,10 +1332,11 @@ body::after {
 }
 
 .social-links a:hover {
-    color: var(--accent-red); /* New accent color */
+    color: var(--accent-red);
+    /* New accent color */
 }
 
-.footer p {
+.page-footer p {
     margin-top: 20px;
     font-size: 0.9rem;
 }
@@ -914,7 +1351,8 @@ body::after {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(3, 8, 26, 0.85); /* Darker overlay */
+    background-color: rgba(3, 8, 26, 0.85);
+    /* Darker overlay */
     backdrop-filter: blur(5px);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -929,7 +1367,8 @@ body::after {
     background-color: var(--primary-color);
     margin: 10% auto;
     padding: 40px;
-    border: 1px solid rgba(60, 110, 113, 0.5); /* New accent border */
+    border: 1px solid rgba(60, 110, 113, 0.5);
+    /* New accent border */
     width: 90%;
     max-width: 600px;
     border-radius: 8px;
@@ -975,7 +1414,8 @@ body::after {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: var(--accent-red); /* New accent color */
+    background-color: var(--accent-red);
+    /* New accent color */
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -983,17 +1423,33 @@ body::after {
     width: 50px;
     height: 50px;
     font-size: 18px;
-    box-shadow: 0 0 20px var(--accent-red); /* New accent shadow */
+    box-shadow: 0 0 20px var(--accent-red);
+    /* New accent shadow */
     transition: all 0.3s ease;
 }
 
 #scrollToTopBtn:hover {
-    background-color: var(--accent-orange); /* Lighter blue hover */
+    background-color: var(--accent-orange);
+    /* Lighter blue hover */
 }
 
 /* Hamburger & Mobile */
 .hamburger {
     display: none;
+}
+
+@media(max-width: 900px) {
+
+    /* Changed breakpoint for info layout */
+    .info-text {
+        text-align: center;
+        /* Center text on mobile */
+    }
+
+    .info-image {
+        /* Remove clip-path on mobile */
+        clip-path: none !important;
+    }
 }
 
 @media(max-width: 768px) {
@@ -1004,7 +1460,8 @@ body::after {
         height: 100vh;
         flex-direction: column;
         justify-content: center;
-        background-color: rgba(3, 8, 26, 0.97); /* Very dark mobile nav */
+        background-color: rgba(3, 8, 26, 0.97);
+        /* Very dark mobile nav */
         backdrop-filter: blur(10px);
         width: 70%;
         text-align: center;
@@ -1056,6 +1513,26 @@ body::after {
 
     .slide-content h2 {
         font-size: 2rem;
+        margin-bottom: 15px;
+        /* <-- ADD THIS: Creates space between title and buttons */
+    }
+
+    .slide-content div[style*="display: flex"] {
+        flex-direction: column;
+        /* Stack the buttons vertically */
+        align-items: flex-start !important;
+        /* Override inline style to align left */
+        gap: 10px !important;
+        /* Override inline style for a smaller gap */
+    }
+
+    .slide-content .slide-cta,
+    .slide-content .guidelines-button {
+        width: 100%;
+        text-align: center;
+        /* Center the text inside the button */
+        box-sizing: border-box;
+        /* Ensures padding doesn't break the width */
     }
 
     .slide-content p {
@@ -1070,19 +1547,24 @@ body::after {
 
     .event-tabs {
         gap: 10px;
-        margin-bottom: 40px; /* Adjust margin for mobile */
-        padding-bottom: 3px; /* Adjust padding for mobile */
+        margin-bottom: 40px;
+        /* Adjust margin for mobile */
+        padding-bottom: 3px;
+        /* Adjust padding for mobile */
     }
 
     .tab-button {
-        font-size: 1.3rem; /* Adjust font size for mobile */
-        padding: 10px 15px; /* Adjust padding for mobile */
-        margin-bottom: -3px; /* Adjust alignment for mobile */
+        font-size: 1.3rem;
+        /* Adjust font size for mobile */
+        padding: 10px 15px;
+        /* Adjust padding for mobile */
+        margin-bottom: -3px;
+        /* Adjust alignment for mobile */
     }
 
-     /* Remove top line effect on mobile if it looks cluttered */
+    /* Remove top line effect on mobile if it looks cluttered */
     .tab-button.active::before {
-       display: none;
+        display: none;
     }
 
     .gallery-grid {
@@ -1097,14 +1579,53 @@ body::after {
     }
 
     .event-card {
-        max-width: none; /* Allow cards to fill width on mobile */
+        max-width: none;
+        /* Allow cards to fill width on mobile */
+    }
+
+    /* Countdown mobile styles */
+    .countdown-block {
+        padding: 10px 15px;
+        min-width: 60px;
+    }
+
+    .countdown-block span:first-child {
+        font-size: 2rem;
+    }
+
+    .countdown-block .label {
+        font-size: 0.7rem;
+    }
+
+    /* Contact/Venue mobile styles */
+    .contact-info {
+        text-align: center;
+        /* Center contact info on mobile */
+    }
+
+    .college-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Coordinator mobile styles */
+    .coordinator-grid {
+        grid-template-columns: 1fr;
+        /* Stack on small mobile */
+        gap: 20px;
+    }
+
+    .coordinator-card {
+        max-width: none;
+        /* Full width */
     }
 }
 
 /* --- UPDATED DESKTOP MEDIA QUERY --- */
 @media (min-width: 900px) {
     .info-row {
-        flex-wrap: nowrap; /* Go side-by-side on desktop */
+        flex-wrap: nowrap;
+        /* Go side-by-side on desktop */
     }
 
     /* Row 1: Text | Image (default order) */
