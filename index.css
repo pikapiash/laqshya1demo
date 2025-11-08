@@ -1503,19 +1503,43 @@ body::after {
         transform: translateY(-8px) rotate(-45deg);
     }
 
+    .slide {
+    flex: 0 0 90%;      /* Takes 90% of phone width */
+    margin: 0 1.5%;
+    background-color: var(--primary-color); /* NEW: Adds a "card" background */
+    transform: scale(0.9); /* Scale down non-active slides a bit more */
+}
+.slide.active {
+    transform: scale(1); /* Active slide is full size */
+}
+
     .slide img {
-        height: 300px;
-    }
+    height: 350px;      /* Keeps the shorter image height */
+    /* NEW: Rounds *only* the top corners to fit the card */
+    border-radius: 8px 8px 0 0; 
+}
 
     .slide-content {
-        padding: 20px;
-    }
+    /* --- THIS IS THE MAIN FIX --- */
+    position: relative;   /* Puts it back in the document flow (under the image) */
+    bottom: auto;         /* Resets old properties */
+    left: auto;
+    right: auto;
+    background: transparent; /* Removes the overlay gradient */
+    /* --- End of main fix --- */
+    
+    padding: 25px;      /* Keeps padding */
+}
 
-    .slide-content h2 {
-        font-size: 2rem;
-        margin-bottom: 15px;
-        /* <-- ADD THIS: Creates space between title and buttons */
-    }
+  .slide-content h2 {
+    /* This makes the title a little smaller */
+    font-size: 1.8rem;  /* Was 2rem */
+    margin-bottom: 10px; /* Ensures space above stacked buttons */
+}
+    .slide-content p {
+    /* This still hides the extra paragraph to save space */
+    display: none;
+}
 
     .slide-content div[style*="display: flex"] {
         flex-direction: column;
